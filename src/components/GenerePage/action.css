@@ -1,40 +1,39 @@
-.first{
-    /* position: relative; */
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    /* grid-template-rows: 1fr 1fr 1fr 1fr 1fr; */
-    column-gap: 50px;
-    
+.first {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  column-gap: 50px;
 }
 
-.item{
-   
-    margin-top: 30px;
-    height: 400px;
-    border: 5px solid white;
-    border-radius: 10px;
-    
-    
+.item {
+  margin-top: 30px;
+  height: 430px;
+  border: 5px solid white;
+  border-radius: 10px;
 }
 
-.movieImage{
-    margin-top: 20px;
-    width: 300px;
-    height: 200px;
+.movieImage {
+  margin-top: 20px;
+  width: 300px;
+  height: 200px;
+  margin-left: 20px;
 }
-h1{
-    font-size: 40px;
+
+.item h3,
+p {
+  margin-top: 5px;
+  color: white;
+  text-align: center;
 }
-.item h3, p{
-    color: white;
-    text-align: center;
+
+.item button {
+  margin-left: 20px;
+  margin-top: 5px;
+  width: 300px;
+  height: 25px;
+  border-radius: 5px;
+  background-color: white;
 }
-.item button{
-   margin-left: 20px;
-    width: 300px;
-    border-radius: 5px;
-    background-color: white;
-}
-.item button:hover{
-    background-color: red;
+
+.item button:hover {
+  background-color: red;
 }
