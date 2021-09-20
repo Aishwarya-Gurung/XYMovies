@@ -1,0 +1,27 @@
+p{
+    color: white;
+}
+.item__watch{
+    /* display: flex;
+    flex-direction: column; */
+    border: 5px solid white;
+    width: 800px;
+    height: 300px;
+    margin-left: 400px;
+}
+.de__item {
+    margin-left: 120px;
+    
+}
+.de__item button{
+    margin-left: 350px;
+    width: 100px;
+    border-radius: 10px;
+    background-color: white;
+}
+.item__watch h3{
+    color: white;
+    margin-left:400px;
+    margin-top: -190px;
+  
+}

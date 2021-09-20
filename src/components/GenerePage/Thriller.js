@@ -6,6 +6,7 @@ import { useHistory } from "react-router";
 const Thriller = () => {
   const history = useHistory();
   const [details, setDetails] = useState([]);
+  const [key, setkeys] = useState(Object.keys(localStorage));
 
   useEffect(() => {
     axios
@@ -25,14 +26,35 @@ const Thriller = () => {
         const ViewDescription = () => {
           history.push({ pathname: "/MovieDescription", state: detail.id });
         };
+        const handelWatchListClick = () => {
+          localStorage.setItem("l" + detail.id, JSON.stringify(detail));
+          setkeys(Object.keys(localStorage));
+        };
+        const watchlist = key.includes("l" + detail.id);
+        const watched = key.includes("w" + detail.id);
+      
+         const handelWatchedList = () => {
+    localStorage.setItem("w" + detail.id, JSON.stringify(detail));
+    if (watchlist == true) {
+      localStorage.removeItem("l" + detail.id);
+    }
+    setkeys(Object.keys(localStorage));
+  };
         return (
           <div className="item" onClick={ViewDescription}>
             <img src={detail.medium_cover_image} className="movieImage" />
             <h3>Movie Name:{detail.title}</h3>
             <p>Rating:{detail.rating}</p>
             <p>Duration:{detail.runtime} minutes</p>
-            <button>Add to watchList</button>
-            <button>Marked as watchedt</button>
+            {watchlist === true || watched === true ? (
+          " "
+        ) : (
+            <button onClick={handelWatchListClick}>Add to watchList</button>
+           )} 
+            {watched === false ? (
+            <button onClick={handelWatchedList}>Marked as watchedt</button>
+            ) : (<p>Already watched</p>
+              )} 
           </div>
         );
       })}
