@@ -25,22 +25,32 @@ const Watch = () => {
         const isWatchlisted=key.includes("l"+parsedData.id);
         console.log(parsedData.id);
         console.log(isWatchlisted)
+
+        const watchListRemove = (id) =>{
+            console.log(parsedData.id);
+            localStorage.removeItem("l"+parsedData.id);
+            // console.log(parsedData.id);
+        }
         return ( 
-          
-            <div className="item__watch" >
+            <>
+          {isWatchlisted===true? 
+          <div className="item__watch" >
             <img src={parsedData.medium_cover_image} className="movieImage" />
             <h3>Movie Name:{parsedData.title}</h3>
             <div className="de__item">
             
             <p>Rating:{parsedData.rating}</p>
             <p>Duration:{parsedData.runtime} minutes</p>
-            <button>Delete</button>
+            <button onClick={() => watchListRemove(parsedData.id)}>Delete</button>
             </div>
 
-        </div>
+        </div> : "" } 
+            
+        </>
         );
       })}
     </div>
+    
         )
 }
 export default Watch
